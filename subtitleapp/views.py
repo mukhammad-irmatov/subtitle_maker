@@ -17,7 +17,6 @@ def homePageView(request):
         # Get the YouTube video URL from the user input
         youtube_url = request.POST['url']
         url = settings.API_URL
-        print(url)
         data = {
             "data":
                 [youtube_url]
@@ -69,9 +68,13 @@ def videopage(request):
         subprocess.call(cmd, shell=True)
         current_host = request.get_host()
         video_file_path = f"{current_host}/media/videos/output.mp4"
+        final_result = []
+        for txt in result:
+            data = {'index': txt[0], 'start': txt[1], 'end': txt[2], 'text': txt[3]}
+            final_result.append(data)
         context = {
             'youtube_link': youtube_link,
-            'result': result,
+            'result': final_result,
             "video": video_file_path
         }
         return render(request, 'video.html', context=context)
