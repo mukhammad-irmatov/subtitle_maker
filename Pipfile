@@ -5,6 +5,11 @@ name = "pypi"
 
 [packages]
 django = "*"
+pytube = "*"
+moviepy = "*"
+scopes = "*"
+srt = "*"
+python-decouple = "*"
 
 [dev-packages]
 

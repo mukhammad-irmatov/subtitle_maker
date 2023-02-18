@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Enter youtube url</title>
+  </head>
+  <body>
+    <div class="home">
+      <div class="container">
+        <div class="form" id="formSection">
+          <div class="loader" id="loader">
+            <span class="loader_circle"></span>
+          </div>
+          <form action="" onsubmit="handleSubmit()" id="form" method="POST"> {% csrf_token %}
+            <input type="text" placeholder="Enter video url" name="url" />
+            <button class="button" type="submit">Enter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+        {% block scripts %}
+    <script src="{% static 'js/main.js' %}"></script>
+          {% endblock %}
+
+  </body>
+</html>

@@ -1,0 +1,69 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Result page</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="media">
+        <div class="_content flex">
+          <div class="video_part">
+            <div id="ytplayer">
+                <video width="630" height="440" controls autoplay>
+              <source src="/media/videos/output.mp4" type="video/mp4">
+            </video>
+            </div>
+          </div>
+          <div class="text" style="width:900px">
+            <div class="header">
+              <h2>Subtitle video</h2>
+            </div>
+            <div id="subtitles">
+                {% for res in result %}
+        <div class="flex flex-col badge-time">
+          <span> {{ res }}</span>
+        </div>
+
+        <p>
+          {{item.title}}
+        </p>
+        {% endfor %}
+      </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+{#        <div class="action flex flex-col">#}
+{#          <button>#}
+{#            <i class="fa-solid fa-trash"></i>#}
+{#          </button>#}
+{#          <button>#}
+{#            <i class="fa-solid fa-pen"></i>#}
+{#          </button>#}
+{#          <button>#}
+{#            <i class="fa-solid fa-check"></i>#}
+{#          </button>#}
+{#        </div>#}
+      </div>
+    </template>
+
+  </body>
+</html>
